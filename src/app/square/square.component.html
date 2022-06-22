@@ -1,0 +1,12 @@
+<div class="form-container">
+    <form class="form-element">
+        <input [id]="myId" type="text" value="hima"/>
+        <input id="{{myId}}" [disabled]="isDisabled" type="text" value="hima"/>
+        <input id="{{myId}}" bind-disabled="isDisabled" type="text" value="hima"/>
+    </form>
+    <div class="out-container">
+        <p [class]="textColor">{{name}}</p>
+        <p [class.danger]="error">{{name}}</p>
+    </div>
+    <button [ngClass]="classes">Click here!!!</button>
+</div>
