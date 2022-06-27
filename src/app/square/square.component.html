@@ -1,12 +1,18 @@
 <div class="form-container">
     <form class="form-element">
-        <input [id]="myId" type="text" value="hima"/>
-        <input id="{{myId}}" [disabled]="isDisabled" type="text" value="hima"/>
+        <input #input1 [id]="myId" type="text" value="hima"/>
+        <input id="{{myId}}" [disabled]="clicks" type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}"/>
         <input id="{{myId}}" bind-disabled="isDisabled" type="text" value="hima"/>
     </form>
+    <button (click)="logger(input1.value)" [ngClass]="classes">LOG</button>
+    <h1>{{greetings}}</h1>
+    <h1>{{name}}</h1>
     <div class="out-container">
         <p [class]="textColor">{{name}}</p>
         <p [class.danger]="error">{{name}}</p>
     </div>
-    <button [ngClass]="classes">Click here!!!</button>
+    <button (click)="onClick($event)" [ngClass]="classes">Click here!!!</button>
+    <button (click)="greetings='welcome'" [ngClass]="classes">{{greetings}}</button>
+    <div [style.color]="error ? 'red':'green'">{{count}}</div>
+    <p [style.color]="clicks ? 'green':'red'">{{clicks ? 'clicked':'unclicked'}}</p>
 </div>
